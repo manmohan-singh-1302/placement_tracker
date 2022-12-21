@@ -13,10 +13,11 @@ const Register = () => {
         github : '',
         linkedin : '', 
         password : '',
-        confirmpassword : ''
+        confirmpassword : '',
+        cgpa : ''
     })
     const [x,setX] = useState(0);
-    const {fullname,collegeId,branch,email,mobile,github,linkedin,password,confirmpassword} = data
+    const {fullname,collegeId,branch,email,mobile,github,linkedin,password,confirmpassword,cgpa} = data
     const changeHandler = e =>{
         seData({...data,[e.target.name]:e.target.value})
     }
@@ -237,9 +238,12 @@ const Register = () => {
         console.log(branch);
         
         if(password.length>5 && mobile.length===10){
-            if(fullname && email ){
+            if(fullname && email && cgpa){
                 if(password===confirmpassword){
                     if(collegeId && branch && collegeId.length===10){
+                        if(cgpa==" "){
+                            alert("please provide your cgpa")
+                        }
                         
                             if(check_roll(collegeId,branch)){
 
@@ -326,6 +330,7 @@ const Register = () => {
                     
                     <input style={{width:"41%"}} type="password"         placeholder="Password*"         onChange={changeHandler} value={password} name="password" /><br /><br />
                     <input style={{width:"41%"}} type="confirmpassword"  placeholder="Confirm Password*" onChange={changeHandler} value={confirmpassword} name="confirmpassword" /><br /><br />
+                    <input style = {{width:"41%"}} type = "text"  placeholder = "cgpa*" onChange={changeHandler} value = {cgpa} name = "cgpa"/> <br /><br />
 
                     <br></br><input type="submit" className="btn btn-primary" value="Register" />
                 </form>

@@ -28,7 +28,11 @@ const Header = () => {
                 </NavLink>
             </li>
            
-
+            <li className = "nav-link">
+                <NavLink to="/myProfile" className="nav-link" onClick={()=>localStorage.clear()} style={({ isActive }) => ({ color: isActive ? 'orange' : 'white' })}>
+                    MyProfile
+                </NavLink>
+            </li>
         </nav>
     )
 }
