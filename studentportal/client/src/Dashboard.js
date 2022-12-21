@@ -9,8 +9,10 @@ const Dashboard = () => {
     const [tokenn,setTokenn] = useState(localStorage.getItem('token'))
     const [y,setY] = useState("")
     useEffect(()=>{
-        axios.get('http://localhost:5000/getcomp').then(res => 
-                !search ? setData(res.data) : setData(res.data.filter(profile => profile.compname.includes(search.toUpperCase()) | profile.email.toLowerCase().includes(search.toLowerCase()) | profile.eligibility.toLowerCase().includes(search.toLowerCase()))))
+        //axios.get('http://localhost:5000/getcomp').then(res => setData(res.data.filter(profile=>profile.eligibility<=localStorage.getItem('cgpaa')))) 
+                axios.get('http://localhost:5000/getcomp').then(res => 
+
+    !search ? setData(res.data.filter(profile=>profile.eligibility<=localStorage.getItem('cgpaa'))): setData(res.data.filter(profile => profile.compname.includes(search.toUpperCase()) | profile.email.toLowerCase().includes(search.toLowerCase()) | profile.eligibility.toLowerCase().includes(search.toLowerCase()))))
 
         axios.get('http://localhost:5000/getpresentuser',{
             headers : {

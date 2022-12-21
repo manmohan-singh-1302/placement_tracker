@@ -5,7 +5,6 @@ import Header from './Header';
 
 const Indprofile = () => {
     const {id,sid}=  useParams()
-   
     const [iprofile,setIprofile] = useState(null)
     const [puser,setPuser] = useState(null)
     

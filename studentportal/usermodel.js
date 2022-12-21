@@ -33,6 +33,7 @@ const users = new mongoose.Schema({
         type : String,
         required : true,
     },
+    cgpa: String,
     resetPasswordToken:String,
     resetPasswordExpire:Date,
 })

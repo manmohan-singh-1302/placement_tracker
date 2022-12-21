@@ -35,7 +35,7 @@ app.post('/register',async (req,res) =>{
         }
 
         let newUser = new users({
-            fullname,collegeId,branch,email,mobile,github,linkedin,password,confirmpassword
+            fullname,collegeId,branch,email,mobile,github,linkedin,password,confirmpassword,cgpa
         })
         newUser.save();
         return res.status(200).send('User has been Registered Successfully')
@@ -68,7 +68,7 @@ app.post('/login',async (req,res)=>{
         jwt.sign(payload,'jwtPassword',{expiresIn:360000000},
         (err,token)=>{
             if(err) throw err
-            return res.json({token})
+            return res.json({token:token,cgpaa:exist.cgpa})
         })
     }
     catch(err){
@@ -116,6 +116,7 @@ app.get('/getpresentuser',middleware,async(req,res)=>{
     try{
         const userid = req.user.id
         const exist = await users.findById(userid)
+        const cgpa = req.user.cgpa
         return res.status(200).json(exist);
 
     }

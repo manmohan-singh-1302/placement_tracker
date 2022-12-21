@@ -238,12 +238,12 @@ const Register = () => {
         console.log(branch);
         
         if(password.length>5 && mobile.length===10){
-            if(fullname && email && cgpa){
+            if(fullname && email){
                 if(password===confirmpassword){
                     if(collegeId && branch && collegeId.length===10){
-                        if(cgpa==" "){
-                            alert("please provide your cgpa")
-                        }
+                        // if(cgpa===" "){
+                        //     alert("please provide your cgpa")
+                        // }
                         
                             if(check_roll(collegeId,branch)){
 

@@ -17,7 +17,7 @@ const Login = () => {
         axios.post('http://localhost:5000/login',data).then(
                                                             //    res => console.log(res.data)       to check before saving token in local storage
                                                             //2    res => localStorage.setItem('token',res.data.token)
-        res => { if(res.data.length<=30){alert(res.data)}; localStorage.setItem('token',res.data.token);setAuth(true)}
+        res => { if(res.data.length<=30){alert(res.data)}; localStorage.setItem('token',res.data.token); localStorage.setItem('cgpaa',res.data.cgpaa);setAuth(true)}
         )
     }
                                                                                 //2 if(localStorage.getItem('token')){
